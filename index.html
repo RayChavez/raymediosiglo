@@ -457,14 +457,14 @@
 
     <!-- Reproductor de música flotante -->
     <div class="music-player" id="musicPlayer">
-        <div class="music-label" id="musicLabel">🎵 Jaime y los chamacos<br>¡Dale play!</div>
+        <div class="music-label" id="musicLabel">🎵 Traileros del Norte<br>¡Dale play!</div>
         <button class="music-btn" id="musicBtn" title="Reproducir / Pausar música">🎵</button>
         <!-- YouTube iframe oculto para audio -->
         <iframe 
             id="ytPlayer"
             width="0" 
             height="0"  
-            src="https://www.youtube.com/embed/Kc-3oN4ycNQ?enablejsapi=1&autoplay=1&loop=1&playlist=Kc-3oN4ycNQ" 
+            src="https://www.youtube.com/embed/iQnAUynTPpk?enablejsapi=1&autoplay=1&loop=1&playlist=iQnAUynTPpk" 
             allow="autoplay"
             style="display:none;"
         ></iframe>
@@ -539,15 +539,15 @@
         // Callback global que YouTube llama cuando la API está lista
         window.onYouTubeIframeAPIReady = function() {
             player = new YT.Player('ytPlayer', {
-                videoId: 'Kc-3oN4ycNQ',
+                videoId: 'iQnAUynTPpk',
                 playerVars: {
                     autoplay: 0,
                     loop: 1,
-                    playlist: 'Kc-3oN4ycNQ'
+                    playlist: 'iQnAUynTPpk'
                 },
                 events: {
                     'onReady': function(event) {
-                        musicLabel.innerHTML = '🎵 Jaime y los chamacos<br>¡Dale play!';
+                        musicLabel.innerHTML = '🎵 Traileros del Norte<br>¡Dale play!';
                     },
                     'onStateChange': function(event) {
                         if (event.data === YT.PlayerState.ENDED) {
@@ -568,13 +568,13 @@
                 player.pauseVideo();
                 musicBtn.textContent = '🎵';
                 musicBtn.classList.remove('playing');
-                musicLabel.innerHTML = '🎵 Jaime y los chamacos<br>⏸️ Pausado';
+                musicLabel.innerHTML = '🎵 Traileros del Norte<br>⏸️ Pausado';
                 isPlaying = false;
             } else {
                 player.playVideo();
                 musicBtn.textContent = '🤠';
                 musicBtn.classList.add('playing');
-                musicLabel.innerHTML = '🎵 Jaime y los chamacos<br>🎶 Sonando...';
+                musicLabel.innerHTML = '🎵 Traileros del Norte<br>🎶 Sonando...';
                 isPlaying = true;
             }
         });
