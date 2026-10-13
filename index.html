@@ -472,7 +472,7 @@
 
     <script>
         // ── Contador regresivo ──
-        const targetDate = new Date('2026-12-10T00:00:00');
+        const targetDate = new Date('2026-12-12T00:00:00');
 
         function updateCountdown() {
             const now = new Date();
@@ -539,15 +539,15 @@
         // Callback global que YouTube llama cuando la API está lista
         window.onYouTubeIframeAPIReady = function() {
             player = new YT.Player('ytPlayer', {
-                videoId: 'vw999_U53lg',
+                videoId: 'Kc-3oN4ycNQ',
                 playerVars: {
                     autoplay: 0,
                     loop: 1,
-                    playlist: 'vw999_U53lg'
+                    playlist: 'Kc-3oN4ycNQ'
                 },
                 events: {
                     'onReady': function(event) {
-                        musicLabel.innerHTML = '🎵 Albert Zamora<br>¡Dale play!';
+                        musicLabel.innerHTML = '🎵 Jaime y los chamacos<br>¡Dale play!';
                     },
                     'onStateChange': function(event) {
                         if (event.data === YT.PlayerState.ENDED) {
@@ -568,13 +568,13 @@
                 player.pauseVideo();
                 musicBtn.textContent = '🎵';
                 musicBtn.classList.remove('playing');
-                musicLabel.innerHTML = '🎵 Albert Zamora<br>⏸️ Pausado';
+                musicLabel.innerHTML = '🎵 Jaime y los chamacos<br>⏸️ Pausado';
                 isPlaying = false;
             } else {
                 player.playVideo();
                 musicBtn.textContent = '🤠';
                 musicBtn.classList.add('playing');
-                musicLabel.innerHTML = '🎵 Albert Zamora<br>🎶 Sonando...';
+                musicLabel.innerHTML = '🎵 Jaime y los chamacos<br>🎶 Sonando...';
                 isPlaying = true;
             }
         });
