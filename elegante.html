@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>50 Aniversario - Aparta el día</title>
+    <meta name="description" content="Invitación al 50 aniversario. Sábado 12 de diciembre de 2026, 8:00 p. m., Quinta San Francisco.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400;1,6..96,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Rye&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --night: #161b2e;
+            --dusk: #3a2a4a;
+            --horizon: #d98a3d;
+            --leather: #24150d;
+            --leather-2: #1a0f09;
+            --brass: #c9a24b;
+            --brass-light: #f1d58a;
+            --bone: #efe3cc;
+            --bone-dim: #cdbd9f;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--leather);
+            color: var(--bone);
+            font-family: 'Lora', serif;
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--brass-light);
+            outline-offset: 4px;
+        }
+
+        /* ── Portada: atardecer en el desierto ── */
+        .hero {
+            position: relative;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12svh 24px 26svh;
+            background:
+                linear-gradient(180deg,
+                    var(--night) 0%,
+                    #262240 38%,
+                    var(--dusk) 58%,
+                    #8a4f3c 80%,
+                    var(--horizon) 100%);
+            overflow: hidden;
+        }
+
+        .sky-stars {
+            position: absolute;
+            inset: 0 0 45% 0;
+            pointer-events: none;
+        }
+        .sky-stars i {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background: var(--bone);
+            opacity: .7;
+            animation: twinkle 4s ease-in-out infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: .25; }
+            50% { opacity: .9; }
+        }
+
+        .skyline {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1px;
+            width: 100%;
+            height: 28svh;
+            min-height: 150px;
+            display: block;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+        }
+
+        .invite-line {
+            font-family: 'Bodoni Moda', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(1.5rem, 4.5vw, 2.1rem);
+            color: var(--bone);
+            letter-spacing: .01em;
+        }
+
+        /* El 50: lo memorable de la página */
+        .fifty {
+            font-family: 'Rye', serif;
+            font-size: clamp(9rem, 38vw, 19rem);
+            line-height: .95;
+            margin: .02em 0 0;
+            background: linear-gradient(180deg, var(--brass-light) 0%, var(--brass) 48%, #8a6a22 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 6px 0 rgba(22, 27, 46, .55));
+            position: relative;
+        }
+        .fifty::after {
+            content: '50';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .75) 50%, transparent 65%) -150% 0 / 60% 100% no-repeat;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: sweep 2.4s ease-out .6s 1 forwards;
+        }
+        @keyframes sweep {
+            to { background-position: 250% 0; }
+        }
+
+        .anniversary {
+            font-family: 'Bodoni Moda', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: clamp(2rem, 7vw, 3.2rem);
+            color: var(--bone);
+            margin-top: -.1em;
+        }
+
+        .hero-date {
+            margin-top: 1.4rem;
+            font-size: 1.15rem;
+            color: var(--bone);
+        }
+
+        .scroll-hint {
+            position: absolute;
+            z-index: 1;
+            bottom: 3svh;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 38px;
+            background: linear-gradient(var(--brass-light), transparent);
+        }
+
+        /* ── Cuerpo sobre cuero ── */
+        main {
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(201, 162, 75, .08), transparent 55%),
+                linear-gradient(180deg, var(--leather) 0%, var(--leather-2) 100%);
+            padding: 0 24px 140px;
+        }
+
+        .section {
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 72px 0;
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            max-width: 620px;
+            margin: 0 auto;
+            color: var(--brass);
+        }
+        .ornament::before,
+        .ornament::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--brass));
+        }
+        .ornament::after { transform: scaleX(-1); }
+        .ornament svg { width: 22px; height: 22px; fill: currentColor; }
+
+        h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: clamp(1.8rem, 5vw, 2.4rem);
+            line-height: 1.2;
+            color: var(--brass-light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contador */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 8px;
+        }
+        .count-cell {
+            flex: 1 1 0;
+            max-width: 130px;
+            padding: 0 6px;
+        }
+        .count-cell + .count-cell { border-left: 1px solid rgba(201, 162, 75, .45); }
+        .count-num {
+            display: block;
+            font-family: 'Bodoni Moda', serif;
+            font-weight: 500;
+            font-size: clamp(2.6rem, 11vw, 4.2rem);
+            line-height: 1.1;
+            color: var(--bone);
+            font-variant-numeric: lining-nums tabular-nums;
+        }
+        .count-unit {
+            display: block;
+            font-style: italic;
+            color: var(--bone-dim);
+            font-size: .95rem;
+        }
+
+        /* Lugar */
+        .venue-name {
+            font-family: 'Bodoni Moda', serif;
+            font-weight: 500;
+            font-size: clamp(1.7rem, 5vw, 2.2rem);
+            color: var(--bone);
+            line-height: 1.2;
+        }
+        .venue-text {
+            margin: .5rem 0 2rem;
+            color: var(--bone-dim);
+            font-style: italic;
+        }
+        .map-btn {
+            display: inline-block;
+            padding: 14px 34px;
+            border: 1px solid var(--brass);
+            color: var(--brass-light);
+            text-decoration: none;
+            font-family: 'Lora', serif;
+            font-weight: 500;
+            letter-spacing: .04em;
+            background: transparent;
+            transition: background .25s ease, color .25s ease;
+        }
+        .map-btn:hover {
+            background: var(--brass);
+            color: var(--leather-2);
+        }
+
+        /* Calendario */
+        .cal-intro {
+            color: var(--bone-dim);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        .cal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        /* Mensaje */
+        .message {
+            font-family: 'Bodoni Moda', serif;
+            font-style: italic;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            line-height: 1.5;
+            color: var(--bone);
+        }
+        .yeehaw {
+            margin-top: 2.5rem;
+            font-family: 'Rye', serif;
+            font-size: 1.4rem;
+            letter-spacing: .3em;
+            color: var(--brass);
+        }
+
+        /* ── Reproductor de música ── */
+        .music-player {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .music-label {
+            font-size: .85rem;
+            line-height: 1.3;
+            text-align: right;
+            color: var(--bone);
+            background: rgba(22, 27, 46, .88);
+            border: 1px solid rgba(201, 162, 75, .5);
+            padding: 6px 12px;
+        }
+        .music-btn {
+            width: 54px;
+            height: 54px;
+            flex: none;
+            border-radius: 50%;
+            border: 1px solid var(--brass);
+            background: var(--night);
+            color: var(--brass-light);
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .5);
+            transition: background .25s ease;
+        }
+        .music-btn:hover { background: #232a45; }
+        .music-btn svg { width: 22px; height: 22px; fill: currentColor; }
+        .music-btn .ico-pause { display: none; }
+        .music-btn.playing .ico-play { display: none; }
+        .music-btn.playing .ico-pause { display: block; }
+        #ytPlayer { position: absolute; width: 0; height: 0; border: 0; visibility: hidden; }
+
+        @media (max-width: 500px) {
+            .section { padding: 56px 0; }
+            .music-player { right: 12px; bottom: 12px; }
+            .count-cell { padding: 0 2px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .sky-stars i { animation: none; }
+            .fifty::after { animation: none; display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="sky-stars" id="skyStars" aria-hidden="true"></div>
+
+        <div class="hero-inner">
+            <p class="invite-line">Aparta el día</p>
+            <h1 class="fifty" aria-label="50">50</h1>
+            <p class="anniversary">Aniversario</p>
+            <p class="hero-date">Sábado 12 de diciembre de 2026<br>A partir de las 8:00 de la noche</p>
+        </div>
+
+        <!-- Horizonte: mesas, nopal y suelo -->
+        <svg class="skyline" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <path fill="#4a2a35" d="M0 210 L120 210 L150 160 L260 160 L290 190 L420 190 L450 150 L560 150 L590 200 L1440 200 L1440 300 L0 300Z" opacity=".85"/>
+            <path fill="#2f1b24" d="M0 250 L180 250 L205 205 L330 205 L350 235 L640 235 L670 190 L790 190 L815 225 L1050 225 L1080 180 L1230 180 L1255 215 L1440 215 L1440 300 L0 300Z"/>
+            <g fill="#1a0f09">
+                <path d="M0 275 C240 262 480 280 720 270 C960 260 1200 280 1440 268 L1440 300 L0 300Z"/>
+                <!-- nopal -->
+                <path d="M1180 280 L1180 205 Q1180 195 1190 195 Q1200 195 1200 205 L1200 280Z"/>
+                <path d="M1200 245 L1222 245 Q1232 245 1232 235 L1232 215 Q1232 207 1239 207 Q1246 207 1246 215 L1246 240 Q1246 258 1226 258 L1200 258Z"/>
+                <path d="M1180 258 L1160 258 Q1150 258 1150 248 L1150 230 Q1150 222 1143 222 Q1136 222 1136 230 L1136 250 Q1136 270 1158 270 L1180 270Z"/>
+                <!-- nopal pequeño -->
+                <path d="M260 282 L260 242 Q260 235 266 235 Q272 235 272 242 L272 282Z"/>
+                <path d="M272 262 L284 262 Q290 262 290 256 L290 246 Q290 241 294 241 Q298 241 298 246 L298 258 Q298 270 286 270 L272 270Z"/>
+            </g>
+        </svg>
+
+        <span class="scroll-hint" aria-hidden="true"></span>
+    </header>
+
+    <main>
+        <section class="section" aria-labelledby="t-faltan">
+            <h2 id="t-faltan">Faltan</h2>
+            <div class="countdown" id="countdown" role="timer" aria-live="off">
+                <div class="count-cell"><span class="count-num" id="days">--</span><span class="count-unit">días</span></div>
+                <div class="count-cell"><span class="count-num" id="hours">--</span><span class="count-unit">horas</span></div>
+                <div class="count-cell"><span class="count-num" id="minutes">--</span><span class="count-unit">minutos</span></div>
+                <div class="count-cell"><span class="count-num" id="seconds">--</span><span class="count-unit">segundos</span></div>
+            </div>
+        </section>
+
+        <div class="ornament" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 1l3.1 7.3L23 9.2l-6 5.2 1.8 7.8L12 18l-6.8 4.2L7 14.4 1 9.2l7.9-.9z"/></svg>
+        </div>
+
+        <section class="section" aria-labelledby="t-lugar">
+            <h2 id="t-lugar">Dónde será</h2>
+            <p class="venue-name" id="t-lugar-nombre">Quinta San Francisco</p>
+            <p class="venue-text">¡Ahí nos vemos, compadre!</p>
+            <a class="map-btn" href="https://maps.google.com/?q=25.779667,-100.201485" target="_blank" rel="noopener">Ver en Google Maps</a>
+        </section>
+
+        <div class="ornament" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 1l3.1 7.3L23 9.2l-6 5.2 1.8 7.8L12 18l-6.8 4.2L7 14.4 1 9.2l7.9-.9z"/></svg>
+        </div>
+
+        <section class="section" aria-labelledby="t-calendario">
+            <h2 id="t-calendario">Agéndalo</h2>
+            <p class="cal-intro">Guarda la fecha en tu calendario para no olvidarla.</p>
+            <div class="cal-actions">
+                <a class="map-btn" id="googleCal" href="#" target="_blank" rel="noopener">Google Calendar</a>
+                <a class="map-btn" id="appleCal" href="#" download="aniversario-50.ics">Apple Calendar</a>
+            </div>
+        </section>
+
+        <div class="ornament" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 1l3.1 7.3L23 9.2l-6 5.2 1.8 7.8L12 18l-6.8 4.2L7 14.4 1 9.2l7.9-.9z"/></svg>
+        </div>
+
+        <section class="section">
+            <p class="message">
+                Ponte tus botas y tu mejor sombrero…<br>
+                ¡que esta fiesta va a estar de lo mejor!
+            </p>
+            <p class="yeehaw">¡YEEHAW!</p>
+        </section>
+    </main>
+
+    <!-- Reproductor de música flotante -->
+    <div class="music-player">
+        <div class="music-label" id="musicLabel">Traileros del Norte<br>Dale play</div>
+        <button class="music-btn" id="musicBtn" type="button" aria-label="Reproducir o pausar música">
+            <svg class="ico-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="ico-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <div id="ytPlayer"></div>
+    </div>
+
+    <script>
+        // ── Contador regresivo ──
+        const targetDate = new Date('2026-12-12T20:00:00');
+        const pad = n => String(n).padStart(2, '0');
+
+        function updateCountdown() {
+            const diff = targetDate - new Date();
+
+            if (diff <= 0) {
+                ['days', 'hours', 'minutes', 'seconds'].forEach(id => {
+                    document.getElementById(id).textContent = '00';
+                });
+                document.getElementById('t-faltan').textContent = '¡El día ha llegado!';
+                return;
+            }
+
+            document.getElementById('days').textContent = pad(Math.floor(diff / 86400000));
+            document.getElementById('hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
+            document.getElementById('minutes').textContent = pad(Math.floor((diff % 3600000) / 60000));
+            document.getElementById('seconds').textContent = pad(Math.floor((diff % 60000) / 1000));
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ── Agregar al calendario ──
+        // Hora de Monterrey (UTC-6): inicia 8:00 p. m. del sábado (02:00 UTC) y termina 3:00 a. m. del domingo (09:00 UTC)
+        const evento = {
+            titulo: '50 Aniversario',
+            inicio: '20261213T020000Z',
+            fin: '20261213T090000Z',
+            lugar: 'Quinta San Francisco',
+            detalles: 'Ponte tus botas y tu mejor sombrero. Mapa: https://maps.google.com/?q=25.779667,-100.201485'
+        };
+
+        const googleParams = new URLSearchParams({
+            action: 'TEMPLATE',
+            text: evento.titulo,
+            dates: evento.inicio + '/' + evento.fin,
+            details: evento.detalles,
+            location: evento.lugar,
+            ctz: 'America/Monterrey'
+        });
+        document.getElementById('googleCal').href = 'https://calendar.google.com/calendar/render?' + googleParams;
+
+        const ics = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//Invitacion 50 Aniversario//ES',
+            'CALSCALE:GREGORIAN',
+            'BEGIN:VEVENT',
+            'UID:aniversario-50-20261212@invitacion',
+            'DTSTAMP:' + new Date().toISOString().replace(/[-:]|\.\d{3}/g, ''),
+            'DTSTART:' + evento.inicio,
+            'DTEND:' + evento.fin,
+            'SUMMARY:' + evento.titulo,
+            'LOCATION:' + evento.lugar,
+            'DESCRIPTION:' + evento.detalles.replace(/,/g, '\\,'),
+            'GEO:25.779667;-100.201485',
+            'END:VEVENT',
+            'END:VCALENDAR'
+        ].join('\r\n');
+        document.getElementById('appleCal').href =
+            URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
+
+        // ── Estrellas del cielo ──
+        const skyStars = document.getElementById('skyStars');
+        for (let i = 0; i < 60; i++) {
+            const s = document.createElement('i');
+            s.style.left = Math.random() * 100 + '%';
+            s.style.top = Math.random() * 100 + '%';
+            s.style.animationDelay = (Math.random() * 4) + 's';
+            s.style.animationDuration = (3 + Math.random() * 3) + 's';
+            skyStars.appendChild(s);
+        }
+
+        // ── Reproductor de música (YouTube IFrame API) ──
+        let player;
+        let isPlaying = false;
+        const musicBtn = document.getElementById('musicBtn');
+        const musicLabel = document.getElementById('musicLabel');
+
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(tag);
+
+        window.onYouTubeIframeAPIReady = function () {
+            player = new YT.Player('ytPlayer', {
+                videoId: 'iQnAUynTPpk',
+                playerVars: { autoplay: 0, loop: 1, playlist: 'iQnAUynTPpk' },
+                events: {
+                    onStateChange: function (event) {
+                        if (event.data === YT.PlayerState.ENDED) player.playVideo();
+                    }
+                }
+            });
+        };
+
+        musicBtn.addEventListener('click', function () {
+            if (!player || typeof player.playVideo !== 'function') {
+                musicLabel.innerHTML = 'Cargando…';
+                return;
+            }
+
+            if (isPlaying) {
+                player.pauseVideo();
+                musicBtn.classList.remove('playing');
+                musicLabel.innerHTML = 'Traileros del Norte<br>En pausa';
+            } else {
+                player.playVideo();
+                musicBtn.classList.add('playing');
+                musicLabel.innerHTML = 'Traileros del Norte<br>Sonando';
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
+</body>
+</html>
