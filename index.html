@@ -3,283 +3,357 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🤠 50 Aniversario - ¡Aparta el Día!</title>
+    <title>50 Aniversario - Aparta el día</title>
+    <meta name="description" content="Invitación al 50 aniversario. Sábado 12 de diciembre de 2026, 8:00 p. m., Quinta San Francisco.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Oswald:wght@500;600&family=Rokkitt:wght@400;600;800&family=Rye&family=Special+Elite&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Rye&family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;1,400&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --wood-dark: #2b1a0f;
+            --paper: #eddbb6;
+            --ink: #3b2312;
+            --red: #8e2a1f;
+            --red-bright: #a3171d;
+            --maroon: #6a2a28;
+            --cream: #f6e7c1;
+            --brass: #d9b45a;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Lora', serif;
-            color: #3e1f00;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* ── Fondo rústico ── */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
             background:
-                /* Textura de madera */
-                repeating-linear-gradient(
-                    90deg,
-                    rgba(139, 90, 43, 0.08) 0px,
-                    transparent 2px,
-                    transparent 18px
-                ),
-                /* Gradiente cálido */
-                linear-gradient(160deg, #f5e6c8 0%, #e8c98e 30%, #d4a35a 60%, #c48a3f 100%);
-            z-index: -2;
-        }
-
-        /* ── Marco decorativo tipo wanted poster ── */
-        .frame {
-            position: relative;
-            background: linear-gradient(145deg, #fdf6e3, #f0dbb5);
-            border: 6px solid #5c3317;
-            border-radius: 8px;
-            padding: 50px 40px;
-            max-width: 650px;
-            width: 90%;
-            margin: 30px auto;
-            box-shadow:
-                inset 0 0 30px rgba(92, 51, 23, 0.15),
-                0 10px 40px rgba(0, 0, 0, 0.3),
-                0 0 0 2px #8b5a2b,
-                0 0 0 8px #3e1f00,
-                0 0 0 10px #8b5a2b;
+                radial-gradient(ellipse at 50% 0%, #4a2d19, transparent 70%),
+                var(--wood-dark);
+            color: var(--ink);
+            font-family: 'Rokkitt', serif;
+            font-size: 1.25rem;
+            line-height: 1.5;
             text-align: center;
+            overflow-x: hidden;
         }
 
-        /* Esquinas decorativas */
-        .frame::before,
-        .frame::after {
-            content: '★';
-            position: absolute;
-            font-size: 28px;
-            color: #8b5a2b;
-        }
-        .frame::before { top: 10px; left: 15px; }
-        .frame::after { top: 10px; right: 15px; }
-
-        .corner-bl, .corner-br {
-            position: absolute;
-            font-size: 28px;
-            color: #8b5a2b;
-            bottom: 10px;
-        }
-        .corner-bl { left: 15px; }
-        .corner-br { right: 15px; }
-
-        /* ── Separadores ── */
-        .separator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin: 18px 0;
-            color: #8b5a2b;
-            font-size: 18px;
-        }
-        .separator .line {
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #8b5a2b, transparent);
+        :focus-visible {
+            outline: 3px solid var(--red-bright);
+            outline-offset: 3px;
         }
 
-        /* ── Título principal ── */
-        .title-aparta {
-            font-family: 'Rye', cursive;
-            font-size: 2.2rem;
-            color: #5c3317;
-            text-shadow: 2px 2px 0 rgba(139, 90, 43, 0.3);
-            letter-spacing: 3px;
-            margin-bottom: 5px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-        }
-
-        .subtitle-50 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            color: #8b5a2b;
-            text-shadow:
-                3px 3px 0 rgba(92, 51, 23, 0.2),
-                0 0 20px rgba(218, 165, 32, 0.3);
-            line-height: 1;
-            margin: 10px 0 5px;
-        }
-
-        .subtitle-aniversario {
-            font-family: 'Rye', cursive;
-            font-size: 1.6rem;
-            color: #5c3317;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-        }
-
-        /* ── Iconos vaqueros ── */
-        .cowboy-icons {
-            font-size: 2.5rem;
-            margin: 10px 0;
-            letter-spacing: 15px;
-        }
-
-        /* ── Información del evento ── */
-        .event-info {
-            font-family: 'Lora', serif;
-            font-size: 1.15rem;
-            color: #5c3317;
-            margin: 8px 0;
-            line-height: 1.8;
-        }
-        .event-info .date {
-            font-family: 'Rye', cursive;
-            font-size: 1.5rem;
-            color: #8b5a2b;
-            display: block;
-            margin: 5px 0;
-        }
-
-        /* ── Contador ── */
-        .countdown-label {
-            font-family: 'Rye', cursive;
-            font-size: 1.1rem;
-            color: #5c3317;
-            margin-top: 15px;
-            letter-spacing: 2px;
-        }
-
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 15px 0;
-            flex-wrap: wrap;
-        }
-
-        .countdown-item {
-            background: linear-gradient(145deg, #5c3317, #3e1f00);
-            border: 2px solid #8b5a2b;
-            border-radius: 8px;
-            padding: 15px 12px;
-            min-width: 80px;
-            box-shadow:
-                0 4px 15px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-
-        .countdown-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #f5e6c8;
-            text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
-            line-height: 1;
-        }
-
-        .countdown-unit {
-            font-family: 'Lora', serif;
-            font-size: 0.75rem;
-            color: #d4a35a;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 5px;
-        }
-
-        /* ── Mensaje final ── */
-        .message {
-            font-family: 'Lora', serif;
-            font-style: italic;
-            font-size: 1rem;
-            color: #5c3317;
-            margin-top: 10px;
-            line-height: 1.6;
-        }
-
-        .yeehaw {
-            font-family: 'Rye', cursive;
-            font-size: 1.3rem;
-            color: #8b5a2b;
-            margin-top: 15px;
-            letter-spacing: 3px;
-        }
-
-        /* ── Animación de estrellas flotantes ── */
-        .floating-stars {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -1;
+        /* ── Cartel: la imagen es el fondo y el texto va encima ── */
+        .poster {
+            position: relative;
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 0 20px;
+            background-color: var(--paper);
+            box-shadow: 0 0 60px rgba(0, 0, 0, .65);
             overflow: hidden;
         }
 
-        .star {
+        /* Imagen de fondo (sin texto), se funde con el papel hacia abajo */
+        .art {
             position: absolute;
-            font-size: 20px;
-            opacity: 0.15;
-            animation: floatStar linear infinite;
+            top: 0;
+            left: 0;
+            width: 100%;
+            aspect-ratio: 354 / 470;
+            background: url('fondo.jpg') center top / 100% 100% no-repeat;
+            -webkit-mask-image: linear-gradient(#000 80%, transparent);
+            mask-image: linear-gradient(#000 80%, transparent);
         }
 
-        @keyframes floatStar {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.15; }
-            90% { opacity: 0.15; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        /* Grano de papel sobre todo el cartel */
+        .poster::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            mix-blend-mode: multiply;
+            opacity: .35;
+            background:
+                url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' seed='9' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.35  0 0 0 0 0.22  0 0 0 0 0.08  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
         }
 
-        /* ── Ubicación ── */
-        .venue {
-            margin: 10px 0;
+        .poster > :not(.art) { position: relative; }
+
+        /* Reserva el espacio de la madera, el sombrero y las botas */
+        .top-space {
+            margin: 0 -20px;
+            aspect-ratio: 354 / 238;
         }
-        .venue-name {
-            font-family: 'Rye', cursive;
-            font-size: 1.4rem;
-            color: #5c3317;
-            margin-bottom: 8px;
+
+        .script {
+            margin-top: .5rem;
+            font-family: 'Kaushan Script', cursive;
+            font-size: clamp(2rem, 8.4vw, 3.3rem);
+            line-height: 1.1;
+            color: var(--red-bright);
+            -webkit-text-stroke: 5px var(--cream);
+            paint-order: stroke fill;
+            text-shadow: 2px 3px 0 rgba(59, 35, 18, .35);
         }
-        .venue-text {
-            font-family: 'Lora', serif;
-            font-size: 1rem;
-            color: #5c3317;
-            margin-bottom: 12px;
+
+        .celebra {
+            margin-top: 1.2rem;
+            font-weight: 800;
+            font-size: clamp(1.25rem, 5vw, 1.8rem);
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--ink);
         }
-        .map-btn {
-            display: inline-flex;
+
+        h1 { margin-top: .3rem; line-height: 1; font-weight: 400; }
+
+        .title-art {
+            display: block;
+            width: 100%;
+            max-width: 560px;
+            height: auto;
+            margin: 0 auto;
+            overflow: visible;
+        }
+        .title-art text { font-family: 'Rye', serif; }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
+        }
+
+        .rule {
+            display: flex;
             align-items: center;
-            gap: 8px;
-            background: linear-gradient(145deg, #5c3317, #3e1f00);
-            color: #f5e6c8;
+            justify-content: center;
+            gap: 14px;
+            margin: 1.6rem auto;
+            max-width: 420px;
+            color: var(--red);
+        }
+        .rule::before, .rule::after {
+            content: '';
+            flex: 1;
+            height: 3px;
+            border-top: 1px solid var(--ink);
+            border-bottom: 1px solid var(--ink);
+            opacity: .6;
+        }
+        .rule svg { width: 20px; height: 20px; fill: currentColor; flex: none; }
+
+        /* Contador */
+        .section-title {
+            font-family: 'Rye', serif;
+            font-weight: 400;
+            font-size: clamp(1.4rem, 5vw, 1.9rem);
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .count-cell {
+            flex: 1 1 0;
+            max-width: 130px;
+            padding: 0 6px;
+        }
+        .count-cell + .count-cell { border-left: 2px solid rgba(59, 35, 18, .35); }
+        .count-num {
+            display: block;
+            font-family: 'Rye', serif;
+            font-size: clamp(2.2rem, 10vw, 3.4rem);
+            line-height: 1.15;
+            color: var(--ink);
+            font-variant-numeric: lining-nums tabular-nums;
+        }
+        .count-unit {
+            display: block;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--red);
+        }
+
+        /* ── Boleto: fecha, lugar y hora ── */
+        .ticket {
+            margin-top: 3rem;
+            color: var(--ink);
+        }
+        .ticket-bg {
+            position: absolute;
+            inset: 0;
+            border: 2px solid var(--maroon);
+            border-radius: 6px;
+            background: rgba(250, 238, 205, .5);
+            /* muescas semicirculares a los lados */
+            -webkit-mask:
+                radial-gradient(circle 12px at 0 50%, transparent 98%, #000 100%) left / 51% 100% no-repeat,
+                radial-gradient(circle 12px at 100% 50%, transparent 98%, #000 100%) right / 51% 100% no-repeat;
+            mask:
+                radial-gradient(circle 12px at 0 50%, transparent 98%, #000 100%) left / 51% 100% no-repeat,
+                radial-gradient(circle 12px at 100% 50%, transparent 98%, #000 100%) right / 51% 100% no-repeat;
+        }
+        .ticket-bg::before {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            border: 1px solid var(--maroon);
+            border-radius: 3px;
+        }
+        /* aro de cada muesca, solo la mitad que queda dentro del boleto */
+        .ticket::before, .ticket::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 26px;
+            height: 26px;
+            margin-top: -13px;
+            border: 2px solid var(--maroon);
+            border-radius: 50%;
+        }
+        .ticket::before { left: -13px; clip-path: inset(0 0 0 50%); }
+        .ticket::after { right: -13px; clip-path: inset(0 50% 0 0); }
+
+        .ticket-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1.25fr .95fr;
+            align-items: center;
+            padding: 20px 14px;
+        }
+        .ticket-col { padding: 4px 8px; }
+        .ticket-col + .ticket-col { border-left: 2px solid var(--maroon); }
+
+        .t-date {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--maroon);
+            line-height: 1.1;
+        }
+        .t-day-name, .t-month {
+            display: block;
+            font-size: clamp(1rem, 4vw, 1.45rem);
+            letter-spacing: .06em;
+        }
+        .t-day {
+            display: block;
+            font-family: 'Rye', serif;
+            font-size: clamp(2rem, 8vw, 3rem);
+            line-height: 1.05;
+            color: var(--maroon);
+        }
+        .t-de {
+            font-family: 'Rye', serif;
+            font-size: .45em;
+            text-transform: lowercase;
+            margin-left: .2em;
+        }
+
+        .t-place {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            font-size: clamp(1.05rem, 4.2vw, 1.5rem);
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            line-height: 1.3;
+        }
+        .t-note {
+            margin-top: .5rem;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        .t-hora-title {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            font-size: clamp(1.05rem, 4vw, 1.4rem);
+            letter-spacing: .08em;
+            color: var(--maroon);
+        }
+        .t-flourish {
+            display: block;
+            width: 78%;
+            height: 12px;
+            margin: 2px auto;
+            fill: none;
+            stroke: var(--maroon);
+            stroke-width: 1.6;
+            stroke-linecap: round;
+        }
+        .t-flourish.flip { transform: scaleY(-1); }
+        .t-from {
+            font-family: 'Special Elite', monospace;
+            font-size: .85rem;
+        }
+        .t-time {
+            font-family: 'Special Elite', monospace;
+            font-size: clamp(1.25rem, 5.2vw, 1.8rem);
+            line-height: 1.2;
+        }
+
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-family: 'Rokkitt', serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: .05em;
+            text-transform: uppercase;
             text-decoration: none;
-            font-family: 'Rye', cursive;
-            font-size: 0.95rem;
-            padding: 12px 25px;
-            border-radius: 8px;
-            border: 2px solid #8b5a2b;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
+            color: var(--cream);
+            background: var(--wood-dark);
+            border: 2px solid var(--brass);
+            box-shadow: 0 4px 0 rgba(0, 0, 0, .35);
+            transition: background .2s ease, color .2s ease, transform .2s ease;
         }
-        .map-btn:hover {
-            background: linear-gradient(145deg, #8b5a2b, #5c3317);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        .btn:hover { background: var(--cream); color: var(--wood-dark); }
+        .btn:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0, 0, 0, .35); }
+        .banner .btn { margin-top: 1.4rem; }
+
+        /* Mapa y calendarios: una fila de íconos */
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            padding-top: 2rem;
         }
+        .icon-btn {
+            display: grid;
+            place-items: center;
+            width: 64px;
+            height: 64px;
+            padding: 0;
+        }
+        .icon-btn svg { width: 30px; height: 30px; fill: currentColor; }
+
+        /* Música de la noche */
+        .lineup { padding: 3rem 0 150px; }
+        .lineup-text {
+            font-family: 'Kaushan Script', cursive;
+            font-size: clamp(1.4rem, 5vw, 1.9rem);
+            line-height: 1.35;
+            color: var(--red-bright);
+            -webkit-text-stroke: 4px var(--cream);
+            paint-order: stroke fill;
+        }
+        .lineup-photo {
+            margin: 1.2rem auto 0;
+            border: 3px solid var(--wood-dark);
+            outline: 2px solid var(--cream);
+            outline-offset: -7px;
+            box-shadow: 0 8px 20px rgba(43, 26, 15, .4);
+            background: var(--wood-dark);
+        }
+        .lineup-photo img { display: block; width: 100%; height: auto; }
+        .lineup-photo.logo { max-width: 400px; }
+        .lineup-photo.band { max-width: 560px; }
+        .lineup-text + .lineup-photo + .lineup-text { margin-top: 3rem; }
 
         /* ── Reproductor de música ── */
         .music-player {
@@ -337,134 +411,142 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* ── Responsive ── */
         @media (max-width: 500px) {
-            .frame {
-                padding: 30px 20px;
-                margin: 15px;
-            }
-            .title-aparta { font-size: 1.5rem; }
-            .subtitle-50 { font-size: 3rem; }
-            .subtitle-aniversario { font-size: 1.1rem; letter-spacing: 4px; }
-            .countdown-item { min-width: 65px; padding: 10px 8px; }
-            .countdown-number { font-size: 1.8rem; }
-            .countdown { gap: 8px; }
+            .count-cell { padding: 0 2px; }
             .music-player { bottom: 10px; right: 10px; }
             .music-btn { width: 50px; height: 50px; font-size: 1.4rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Estrellas flotantes de fondo -->
-    <div class="floating-stars" id="stars"></div>
+    <main class="poster">
+        <div class="art" aria-hidden="true"></div>
 
-    <div class="frame">
-        <!-- Esquinas inferiores -->
-        <span class="corner-bl">★</span>
-        <span class="corner-br">★</span>
+        <!-- Espacio sobre el que se ve el sombrero, las botas y los foquitos -->
+        <div class="top-space" role="img" aria-label="Sombrero vaquero sobre botas, bajo foquitos en frascos"></div>
 
-        <!-- Encabezado -->
-        <div class="cowboy-icons">🤠🐎🌵</div>
+        <p class="script">Ponte tus botas y tu sombrero</p>
+        <p class="celebra">Y acompáñanos a celebrar</p>
 
-        <div class="separator">
-            <span class="line"></span>
-            <span>⋆ ✦ ⋆</span>
-            <span class="line"></span>
+        <h1>
+            <span class="sr-only">Los 50 años de Ray Chavez</span>
+            <svg class="title-art" viewBox="0 0 600 230" aria-hidden="true">
+                <defs>
+                    <!-- Textura de óxido para el relleno de las letras -->
+                    <filter id="rust" filterUnits="userSpaceOnUse" x="0" y="100" width="600" height="130">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="5" result="n"/>
+                        <feColorMatrix in="n" type="matrix" values="0.6 0 0 0 0.14  0 0.26 0 0 0.01  0 0 0.12 0 0.005  0 0 0 0 1" result="tex"/>
+                        <feComposite in="tex" in2="SourceAlpha" operator="in"/>
+                    </filter>
+                    <path id="curveL" d="M72 76 Q150 66 244 78"/>
+                    <path id="curveR" d="M356 78 Q450 66 528 76"/>
+                </defs>
+
+                <!-- Listón izquierdo -->
+                <path d="M74 54 L18 50 L36 76 L18 102 L74 98 Z" fill="#dcc590" stroke="#2b1a0f" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M72 42 Q150 32 250 46 L250 92 Q150 80 72 90 Z" fill="#f6e7c1" stroke="#2b1a0f" stroke-width="3" stroke-linejoin="round"/>
+                <!-- Listón derecho -->
+                <path d="M526 54 L582 50 L564 76 L582 102 L526 98 Z" fill="#dcc590" stroke="#2b1a0f" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M528 42 Q450 32 350 46 L350 92 Q450 80 528 90 Z" fill="#f6e7c1" stroke="#2b1a0f" stroke-width="3" stroke-linejoin="round"/>
+                <text font-size="26" fill="#4a1f1a" letter-spacing="1.5">
+                    <textPath href="#curveL" startOffset="50%" text-anchor="middle">LOS</textPath>
+                </text>
+                <text font-size="26" fill="#4a1f1a" letter-spacing="1.5">
+                    <textPath href="#curveR" startOffset="50%" text-anchor="middle">AÑOS DE</textPath>
+                </text>
+
+                <!-- Insignia con el 50 -->
+                <circle cx="300" cy="64" r="54" fill="#4a1f1a" stroke="#2b1a0f" stroke-width="4"/>
+                <circle cx="300" cy="64" r="45" fill="none" stroke="#f6e7c1" stroke-width="3" stroke-dasharray="0.1 7" stroke-linecap="round"/>
+                <text x="300" y="83" font-size="52" text-anchor="middle" fill="#f6e7c1" stroke="#2b1a0f" stroke-width="2" paint-order="stroke fill">50</text>
+
+                <!-- Palabra grande: sombra, contornos, borde crema y relleno de óxido -->
+                <g text-anchor="middle" font-size="104" stroke-linejoin="round">
+                    <text x="305" y="211" textLength="500" lengthAdjust="spacingAndGlyphs" fill="#2b1a0f" stroke="#2b1a0f" stroke-width="22" opacity=".35">RAY CHAVEZ</text>
+                    <text x="300" y="206" textLength="500" lengthAdjust="spacingAndGlyphs" fill="#2b1a0f" stroke="#2b1a0f" stroke-width="22">RAY CHAVEZ</text>
+                    <text x="300" y="206" textLength="500" lengthAdjust="spacingAndGlyphs" fill="#f6e7c1" stroke="#f6e7c1" stroke-width="15">RAY CHAVEZ</text>
+                    <text x="300" y="206" textLength="500" lengthAdjust="spacingAndGlyphs" fill="#2b1a0f" stroke="#2b1a0f" stroke-width="6">RAY CHAVEZ</text>
+                    <text x="300" y="206" textLength="500" lengthAdjust="spacingAndGlyphs" fill="#000" filter="url(#rust)">RAY CHAVEZ</text>
+                </g>
+            </svg>
+        </h1>
+
+        <div class="rule" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 1l3.1 7.3L23 9.2l-6 5.2 1.8 7.8L12 18l-6.8 4.2L7 14.4 1 9.2l7.9-.9z"/></svg>
         </div>
 
-        <div class="title-aparta">¡¡¡ APARTA EL DÍA !!!</div>
-
-        <div class="separator">
-            <span class="line"></span>
-            <span>🐂</span>
-            <span class="line"></span>
-        </div>
-
-        <div class="subtitle-50">50</div>
-        <div class="subtitle-aniversario">Aniversario</div>
-
-        <div class="separator">
-            <span class="line"></span>
-            <span>⋆ ✦ ⋆</span>
-            <span class="line"></span>
-        </div>
-
-        <!-- Info del evento -->
-        <div class="event-info">
-            <span class="date">📅 12 de Diciembre, 2026</span>
-            Prepárate para una gran celebración
-        </div>
-
-        <div class="separator">
-            <span class="line"></span>
-            <span>🐴</span>
-            <span class="line"></span>
-        </div>
-
-        <!-- Contador -->
-        <div class="countdown-label">🕐 Faltan...</div>
-        <div class="countdown" id="countdown">
-            <div class="countdown-item">
-                <div class="countdown-number" id="days">--</div>
-                <div class="countdown-unit">Días</div>
+        <section aria-labelledby="t-faltan">
+            <h2 class="section-title" id="t-faltan">Faltan</h2>
+            <div class="countdown" id="countdown" role="timer" aria-live="off">
+                <div class="count-cell"><span class="count-num" id="days">--</span><span class="count-unit">días</span></div>
+                <div class="count-cell"><span class="count-num" id="hours">--</span><span class="count-unit">horas</span></div>
+                <div class="count-cell"><span class="count-num" id="minutes">--</span><span class="count-unit">minutos</span></div>
+                <div class="count-cell"><span class="count-num" id="seconds">--</span><span class="count-unit">segundos</span></div>
             </div>
-            <div class="countdown-item">
-                <div class="countdown-number" id="hours">--</div>
-                <div class="countdown-unit">Horas</div>
-            </div>
-            <div class="countdown-item">
-                <div class="countdown-number" id="minutes">--</div>
-                <div class="countdown-unit">Minutos</div>
-            </div>
-            <div class="countdown-item">
-                <div class="countdown-number" id="seconds">--</div>
-                <div class="countdown-unit">Segundos</div>
-            </div>
-        </div>
+        </section>
 
-        <div class="separator">
-            <span class="line"></span>
-            <span>⋆ ✦ ⋆</span>
-            <span class="line"></span>
-        </div>
+        <section class="ticket" aria-label="Fecha, lugar y hora">
+            <div class="ticket-bg" aria-hidden="true"></div>
+            <div class="ticket-grid">
+                <div class="ticket-col t-date">
+                    <span class="t-day-name">Sábado</span>
+                    <span class="t-day">12<span class="t-de">de</span></span>
+                    <span class="t-month">Diciembre</span>
+                </div>
+                <div class="ticket-col">
+                    <p class="t-place">Quinta<br>San Francisco</p>
+                    <p class="t-note">¡Ahí nos vemos, compadre!</p>
+                </div>
+                <div class="ticket-col">
+                    <p class="t-hora-title">HORA</p>
+                    <svg class="t-flourish" viewBox="0 0 100 12" aria-hidden="true"><path d="M3 8 C13 1 22 11 34 6 S46 2 50 6 S66 11 78 5 C86 2 94 5 97 8"/></svg>
+                    <p class="t-from">a partir de</p>
+                    <p class="t-time">8:00pm</p>
+                    <svg class="t-flourish flip" viewBox="0 0 100 12" aria-hidden="true"><path d="M3 8 C13 1 22 11 34 6 S46 2 50 6 S66 11 78 5 C86 2 94 5 97 8"/></svg>
+                </div>
+            </div>
+        </section>
 
-        <!-- Ubicación -->
-        <div class="venue">
-            <div class="venue-name">📍 Quinta San Francisco</div>
-            <div class="venue-text">¡Ahí nos vemos, compadre!</div>
-            <a href="https://maps.google.com/?q=25.779667,-100.201485" target="_blank" class="map-btn">
-                🗺️ Ver en Google Maps
+        <nav class="actions" aria-label="Mapa y calendario">
+            <a class="btn icon-btn" href="https://maps.google.com/?q=25.779667,-100.201485" target="_blank" rel="noopener" aria-label="Ver en Google Maps" title="Ver en Google Maps">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
             </a>
-        </div>
+            <a class="btn icon-btn" id="googleCal" href="#" target="_blank" rel="noopener" aria-label="Agregar a Google Calendar" title="Agregar a Google Calendar">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5zm2 4h5v5H7v-5z"/></svg>
+            </a>
+            <a class="btn icon-btn" id="appleCal" href="#" download="aniversario-50.ics" aria-label="Agregar a Apple Calendar" title="Agregar a Apple Calendar">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+            </a>
+        </nav>
 
-        <div class="separator">
-            <span class="line"></span>
-            <span>⋆ ✦ ⋆</span>
-            <span class="line"></span>
-        </div>
+        <section class="lineup" aria-label="Música de la noche">
+            <p class="lineup-text">Tendremos la mejor música de cabina de la mano de PB Music</p>
+            <figure class="lineup-photo logo">
+                <img src="pb-music.jpg" width="600" height="206" alt="PB Music, audio e iluminación" loading="lazy">
+            </figure>
 
-        <!-- Mensaje -->
-        <div class="message">
-            "Ponte tus botas y tu mejor sombrero...<br>
-            ¡que esta fiesta va a estar de lo mejor!"
-        </div>
-
-        <div class="cowboy-icons">🌵🤠🌵</div>
-
-        <div class="yeehaw">¡ Y E E H A W !</div>
-    </div>
+            <p class="lineup-text">Y para cerrar la noche, la mejor música tejana con Atejanado</p>
+            <figure class="lineup-photo band">
+                <img src="atejanado.jpg" width="965" height="453" alt="Los cuatro integrantes de Atejanado con camisas azules y sombreros negros" loading="lazy">
+            </figure>
+        </section>
+    </main>
 
     <!-- Reproductor de música flotante -->
     <div class="music-player" id="musicPlayer">
         <div class="music-label" id="musicLabel">🎵 Traileros del Norte<br>¡Dale play!</div>
         <button class="music-btn" id="musicBtn" title="Reproducir / Pausar música">🎵</button>
         <!-- YouTube iframe oculto para audio -->
-        <iframe 
+        <iframe
             id="ytPlayer"
-            width="0" 
-            height="0"  
-            src="https://www.youtube.com/embed/iQnAUynTPpk?enablejsapi=1&autoplay=1&loop=1&playlist=iQnAUynTPpk" 
+            width="0"
+            height="0"
+            src="https://www.youtube.com/embed/iQnAUynTPpk?enablejsapi=1&autoplay=1&loop=1&playlist=iQnAUynTPpk"
             allow="autoplay"
             style="display:none;"
         ></iframe>
@@ -472,58 +554,68 @@
 
     <script>
         // ── Contador regresivo ──
-        const targetDate = new Date('2026-12-12T00:00:00');
+        const targetDate = new Date('2026-12-12T20:00:00');
+        const pad = n => String(n).padStart(2, '0');
 
         function updateCountdown() {
-            const now = new Date();
-            const diff = targetDate - now;
+            const diff = targetDate - new Date();
 
             if (diff <= 0) {
-                document.getElementById('days').textContent = '0';
-                document.getElementById('hours').textContent = '0';
-                document.getElementById('minutes').textContent = '0';
-                document.getElementById('seconds').textContent = '0';
-                document.querySelector('.countdown-label').textContent = '🎉 ¡El día ha llegado! 🎉';
+                ['days', 'hours', 'minutes', 'seconds'].forEach(id => {
+                    document.getElementById(id).textContent = '00';
+                });
+                document.getElementById('t-faltan').textContent = '¡El día ha llegado!';
                 return;
             }
 
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            document.getElementById('days').textContent = pad(Math.floor(diff / 86400000));
+            document.getElementById('hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
+            document.getElementById('minutes').textContent = pad(Math.floor((diff % 3600000) / 60000));
+            document.getElementById('seconds').textContent = pad(Math.floor((diff % 60000) / 1000));
         }
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // ── Estrellas flotantes de fondo ──
-        const starsContainer = document.getElementById('stars');
-        const starSymbols = ['★', '✦', '⋆', '✯'];
+        // ── Agregar al calendario ──
+        // Hora de Monterrey (UTC-6): inicia 8:00 p. m. del sábado (02:00 UTC) y termina 3:00 a. m. del domingo (09:00 UTC)
+        const evento = {
+            titulo: '50 Aniversario',
+            inicio: '20261213T020000Z',
+            fin: '20261213T090000Z',
+            lugar: 'Quinta San Francisco',
+            detalles: 'Ponte tus botas y tu mejor sombrero. Mapa: https://maps.google.com/?q=25.779667,-100.201485'
+        };
 
-        function createStar() {
-            const star = document.createElement('span');
-            star.className = 'star';
-            star.textContent = starSymbols[Math.floor(Math.random() * starSymbols.length)];
-            star.style.left = Math.random() * 100 + '%';
-            star.style.fontSize = (12 + Math.random() * 20) + 'px';
-            star.style.animationDuration = (8 + Math.random() * 12) + 's';
-            star.style.animationDelay = Math.random() * 5 + 's';
-            starsContainer.appendChild(star);
+        const googleParams = new URLSearchParams({
+            action: 'TEMPLATE',
+            text: evento.titulo,
+            dates: evento.inicio + '/' + evento.fin,
+            details: evento.detalles,
+            location: evento.lugar,
+            ctz: 'America/Monterrey'
+        });
+        document.getElementById('googleCal').href = 'https://calendar.google.com/calendar/render?' + googleParams;
 
-            // Limpiar después de la animación
-            setTimeout(() => star.remove(), 25000);
-        }
-
-        // Crear estrellas periódicamente
-        for (let i = 0; i < 8; i++) {
-            setTimeout(() => createStar(), i * 600);
-        }
-        setInterval(createStar, 2500);
+        const ics = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//Invitacion 50 Aniversario//ES',
+            'CALSCALE:GREGORIAN',
+            'BEGIN:VEVENT',
+            'UID:aniversario-50-20261212@invitacion',
+            'DTSTAMP:' + new Date().toISOString().replace(/[-:]|\.\d{3}/g, ''),
+            'DTSTART:' + evento.inicio,
+            'DTEND:' + evento.fin,
+            'SUMMARY:' + evento.titulo,
+            'LOCATION:' + evento.lugar,
+            'DESCRIPTION:' + evento.detalles.replace(/,/g, '\\,'),
+            'GEO:25.779667;-100.201485',
+            'END:VEVENT',
+            'END:VCALENDAR'
+        ].join('\r\n');
+        document.getElementById('appleCal').href =
+            URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
 
         // ── Reproductor de música (YouTube IFrame API) ──
         let player;

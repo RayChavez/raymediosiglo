@@ -7,18 +7,17 @@
     <meta name="description" content="Invitación al 50 aniversario. Sábado 12 de diciembre de 2026, 8:00 p. m., Quinta San Francisco.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400;1,6..96,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Rye&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Oswald:wght@500;600&family=Rokkitt:wght@400;600;800&family=Rye&family=Special+Elite&display=swap" rel="stylesheet">
     <style>
         :root {
-            --night: #161b2e;
-            --dusk: #3a2a4a;
-            --horizon: #d98a3d;
-            --leather: #24150d;
-            --leather-2: #1a0f09;
-            --brass: #c9a24b;
-            --brass-light: #f1d58a;
-            --bone: #efe3cc;
-            --bone-dim: #cdbd9f;
+            --wood-dark: #2b1a0f;
+            --paper: #eddbb6;
+            --ink: #3b2312;
+            --red: #8e2a1f;
+            --red-bright: #a3171d;
+            --maroon: #6a2a28;
+            --cream: #f6e7c1;
+            --brass: #d9b45a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,354 +25,463 @@
         html { scroll-behavior: smooth; }
 
         body {
-            background: var(--leather);
-            color: var(--bone);
-            font-family: 'Lora', serif;
-            font-size: 1.0625rem;
-            line-height: 1.75;
+            background:
+                radial-gradient(ellipse at 50% 0%, #4a2d19, transparent 70%),
+                var(--wood-dark);
+            color: var(--ink);
+            font-family: 'Rokkitt', serif;
+            font-size: 1.25rem;
+            line-height: 1.5;
             text-align: center;
             overflow-x: hidden;
         }
 
         :focus-visible {
-            outline: 2px solid var(--brass-light);
-            outline-offset: 4px;
+            outline: 3px solid var(--red-bright);
+            outline-offset: 3px;
         }
 
-        /* ── Portada: atardecer en el desierto ── */
-        .hero {
+        /* ── Cartel: la imagen es el fondo y el texto va encima ── */
+        .poster {
             position: relative;
-            min-height: 100svh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 12svh 24px 26svh;
-            background:
-                linear-gradient(180deg,
-                    var(--night) 0%,
-                    #262240 38%,
-                    var(--dusk) 58%,
-                    #8a4f3c 80%,
-                    var(--horizon) 100%);
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 0 20px;
+            background-color: var(--paper);
+            box-shadow: 0 0 60px rgba(0, 0, 0, .65);
             overflow: hidden;
         }
 
-        .sky-stars {
+        /* Imagen de fondo (sin texto), se funde con el papel hacia abajo */
+        .art {
             position: absolute;
-            inset: 0 0 45% 0;
-            pointer-events: none;
-        }
-        .sky-stars i {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            border-radius: 50%;
-            background: var(--bone);
-            opacity: .7;
-            animation: twinkle 4s ease-in-out infinite;
-        }
-        @keyframes twinkle {
-            0%, 100% { opacity: .25; }
-            50% { opacity: .9; }
-        }
-
-        .skyline {
-            position: absolute;
+            top: 0;
             left: 0;
-            right: 0;
-            bottom: -1px;
             width: 100%;
-            height: 28svh;
-            min-height: 150px;
-            display: block;
+            aspect-ratio: 354 / 470;
+            background: url('fondo.jpg') center top / 100% 100% no-repeat;
+            -webkit-mask-image: linear-gradient(#000 80%, transparent);
+            mask-image: linear-gradient(#000 80%, transparent);
         }
 
-        .hero-inner {
-            position: relative;
-            z-index: 1;
-            max-width: 720px;
-        }
-
-        .invite-line {
-            font-family: 'Bodoni Moda', serif;
-            font-style: italic;
-            font-weight: 400;
-            font-size: clamp(1.5rem, 4.5vw, 2.1rem);
-            color: var(--bone);
-            letter-spacing: .01em;
-        }
-
-        /* El 50: lo memorable de la página */
-        .fifty {
-            font-family: 'Rye', serif;
-            font-size: clamp(9rem, 38vw, 19rem);
-            line-height: .95;
-            margin: .02em 0 0;
-            background: linear-gradient(180deg, var(--brass-light) 0%, var(--brass) 48%, #8a6a22 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            filter: drop-shadow(0 6px 0 rgba(22, 27, 46, .55));
-            position: relative;
-        }
-        .fifty::after {
-            content: '50';
+        /* Grano de papel sobre todo el cartel */
+        .poster::before {
+            content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .75) 50%, transparent 65%) -150% 0 / 60% 100% no-repeat;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: sweep 2.4s ease-out .6s 1 forwards;
-        }
-        @keyframes sweep {
-            to { background-position: 250% 0; }
-        }
-
-        .anniversary {
-            font-family: 'Bodoni Moda', serif;
-            font-style: italic;
-            font-weight: 500;
-            font-size: clamp(2rem, 7vw, 3.2rem);
-            color: var(--bone);
-            margin-top: -.1em;
-        }
-
-        .hero-date {
-            margin-top: 1.4rem;
-            font-size: 1.15rem;
-            color: var(--bone);
-        }
-
-        .scroll-hint {
-            position: absolute;
-            z-index: 1;
-            bottom: 3svh;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1px;
-            height: 38px;
-            background: linear-gradient(var(--brass-light), transparent);
-        }
-
-        /* ── Cuerpo sobre cuero ── */
-        main {
+            pointer-events: none;
+            mix-blend-mode: multiply;
+            opacity: .35;
             background:
-                radial-gradient(ellipse at 50% 0%, rgba(201, 162, 75, .08), transparent 55%),
-                linear-gradient(180deg, var(--leather) 0%, var(--leather-2) 100%);
-            padding: 0 24px 140px;
+                url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' seed='9' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.35  0 0 0 0 0.22  0 0 0 0 0.08  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
         }
 
-        .section {
-            max-width: 620px;
+        .poster > :not(.art) { position: relative; }
+
+        /* Reserva el espacio de la madera, el sombrero y las botas */
+        .top-space {
+            margin: 0 -20px;
+            aspect-ratio: 354 / 238;
+        }
+
+        .script {
+            margin-top: .5rem;
+            font-family: 'Kaushan Script', cursive;
+            font-size: clamp(2rem, 8.4vw, 3.3rem);
+            line-height: 1.1;
+            color: var(--red-bright);
+            -webkit-text-stroke: 5px var(--cream);
+            paint-order: stroke fill;
+            text-shadow: 2px 3px 0 rgba(59, 35, 18, .35);
+        }
+
+        .celebra {
+            margin-top: 1.2rem;
+            font-weight: 800;
+            font-size: clamp(1.25rem, 5vw, 1.8rem);
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--ink);
+        }
+
+        h1 { margin-top: .3rem; line-height: 1; font-weight: 400; }
+
+        .title-art {
+            display: block;
+            width: 100%;
+            max-width: 560px;
+            height: auto;
             margin: 0 auto;
-            padding: 72px 0;
+            overflow: visible;
+        }
+        .title-art text { font-family: 'Rye', serif; }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
         }
 
-        .ornament {
+        .rule {
             display: flex;
             align-items: center;
-            gap: 16px;
-            max-width: 620px;
-            margin: 0 auto;
-            color: var(--brass);
+            justify-content: center;
+            gap: 14px;
+            margin: 1.6rem auto;
+            max-width: 420px;
+            color: var(--red);
         }
-        .ornament::before,
-        .ornament::after {
+        .rule::before, .rule::after {
             content: '';
             flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--brass));
+            height: 3px;
+            border-top: 1px solid var(--ink);
+            border-bottom: 1px solid var(--ink);
+            opacity: .6;
         }
-        .ornament::after { transform: scaleX(-1); }
-        .ornament svg { width: 22px; height: 22px; fill: currentColor; }
-
-        h2 {
-            font-family: 'Bodoni Moda', serif;
-            font-style: italic;
-            font-weight: 500;
-            font-size: clamp(1.8rem, 5vw, 2.4rem);
-            line-height: 1.2;
-            color: var(--brass-light);
-            margin-bottom: 1.5rem;
-        }
+        .rule svg { width: 20px; height: 20px; fill: currentColor; flex: none; }
 
         /* Contador */
+        .section-title {
+            font-family: 'Rye', serif;
+            font-weight: 400;
+            font-size: clamp(1.4rem, 5vw, 1.9rem);
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
         .countdown {
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            margin-top: 8px;
         }
         .count-cell {
             flex: 1 1 0;
             max-width: 130px;
             padding: 0 6px;
         }
-        .count-cell + .count-cell { border-left: 1px solid rgba(201, 162, 75, .45); }
+        .count-cell + .count-cell { border-left: 2px solid rgba(59, 35, 18, .35); }
         .count-num {
             display: block;
-            font-family: 'Bodoni Moda', serif;
-            font-weight: 500;
-            font-size: clamp(2.6rem, 11vw, 4.2rem);
-            line-height: 1.1;
-            color: var(--bone);
+            font-family: 'Rye', serif;
+            font-size: clamp(2.2rem, 10vw, 3.4rem);
+            line-height: 1.15;
+            color: var(--ink);
             font-variant-numeric: lining-nums tabular-nums;
         }
         .count-unit {
             display: block;
-            font-style: italic;
-            color: var(--bone-dim);
-            font-size: .95rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--red);
         }
 
-        /* Lugar */
-        .venue-name {
-            font-family: 'Bodoni Moda', serif;
+        /* ── Boleto: fecha, lugar y hora ── */
+        .ticket {
+            margin-top: 3rem;
+            color: var(--ink);
+        }
+        .ticket-bg {
+            position: absolute;
+            inset: 0;
+            border: 2px solid var(--maroon);
+            border-radius: 6px;
+            background: rgba(250, 238, 205, .5);
+            /* muescas semicirculares a los lados */
+            -webkit-mask:
+                radial-gradient(circle 12px at 0 50%, transparent 98%, #000 100%) left / 51% 100% no-repeat,
+                radial-gradient(circle 12px at 100% 50%, transparent 98%, #000 100%) right / 51% 100% no-repeat;
+            mask:
+                radial-gradient(circle 12px at 0 50%, transparent 98%, #000 100%) left / 51% 100% no-repeat,
+                radial-gradient(circle 12px at 100% 50%, transparent 98%, #000 100%) right / 51% 100% no-repeat;
+        }
+        .ticket-bg::before {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            border: 1px solid var(--maroon);
+            border-radius: 3px;
+        }
+        /* aro de cada muesca, solo la mitad que queda dentro del boleto */
+        .ticket::before, .ticket::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 26px;
+            height: 26px;
+            margin-top: -13px;
+            border: 2px solid var(--maroon);
+            border-radius: 50%;
+        }
+        .ticket::before { left: -13px; clip-path: inset(0 0 0 50%); }
+        .ticket::after { right: -13px; clip-path: inset(0 50% 0 0); }
+
+        .ticket-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1.25fr .95fr;
+            align-items: center;
+            padding: 20px 14px;
+        }
+        .ticket-col { padding: 4px 8px; }
+        .ticket-col + .ticket-col { border-left: 2px solid var(--maroon); }
+
+        .t-date {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--maroon);
+            line-height: 1.1;
+        }
+        .t-day-name, .t-month {
+            display: block;
+            font-size: clamp(1rem, 4vw, 1.45rem);
+            letter-spacing: .06em;
+        }
+        .t-day {
+            display: block;
+            font-family: 'Rye', serif;
+            font-size: clamp(2rem, 8vw, 3rem);
+            line-height: 1.05;
+            color: var(--maroon);
+        }
+        .t-de {
+            font-family: 'Rye', serif;
+            font-size: .45em;
+            text-transform: lowercase;
+            margin-left: .2em;
+        }
+
+        .t-place {
+            font-family: 'Oswald', sans-serif;
             font-weight: 500;
-            font-size: clamp(1.7rem, 5vw, 2.2rem);
-            color: var(--bone);
+            font-size: clamp(1.05rem, 4.2vw, 1.5rem);
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            line-height: 1.3;
+        }
+        .t-note {
+            margin-top: .5rem;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        .t-hora-title {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            font-size: clamp(1.05rem, 4vw, 1.4rem);
+            letter-spacing: .08em;
+            color: var(--maroon);
+        }
+        .t-flourish {
+            display: block;
+            width: 78%;
+            height: 12px;
+            margin: 2px auto;
+            fill: none;
+            stroke: var(--maroon);
+            stroke-width: 1.6;
+            stroke-linecap: round;
+        }
+        .t-flourish.flip { transform: scaleY(-1); }
+        .t-from {
+            font-family: 'Special Elite', monospace;
+            font-size: .85rem;
+        }
+        .t-time {
+            font-family: 'Special Elite', monospace;
+            font-size: clamp(1.25rem, 5.2vw, 1.8rem);
             line-height: 1.2;
         }
-        .venue-text {
-            margin: .5rem 0 2rem;
-            color: var(--bone-dim);
-            font-style: italic;
-        }
-        .map-btn {
+
+
+        .btn {
             display: inline-block;
-            padding: 14px 34px;
-            border: 1px solid var(--brass);
-            color: var(--brass-light);
+            padding: 12px 30px;
+            font-family: 'Rokkitt', serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: .05em;
+            text-transform: uppercase;
             text-decoration: none;
-            font-family: 'Lora', serif;
-            font-weight: 500;
-            letter-spacing: .04em;
-            background: transparent;
-            transition: background .25s ease, color .25s ease;
+            color: var(--cream);
+            background: var(--wood-dark);
+            border: 2px solid var(--brass);
+            box-shadow: 0 4px 0 rgba(0, 0, 0, .35);
+            transition: background .2s ease, color .2s ease, transform .2s ease;
         }
-        .map-btn:hover {
-            background: var(--brass);
-            color: var(--leather-2);
-        }
+        .btn:hover { background: var(--cream); color: var(--wood-dark); }
+        .btn:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0, 0, 0, .35); }
+        .banner .btn { margin-top: 1.4rem; }
 
-        /* Calendario */
-        .cal-intro {
-            color: var(--bone-dim);
-            font-style: italic;
-            margin-bottom: 2rem;
-        }
-        .cal-actions {
+        /* Mapa y calendarios: una fila de íconos */
+        .actions {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 14px;
+            gap: 16px;
+            padding-top: 2rem;
         }
+        .icon-btn {
+            display: grid;
+            place-items: center;
+            width: 64px;
+            height: 64px;
+            padding: 0;
+        }
+        .icon-btn svg { width: 30px; height: 30px; fill: currentColor; }
 
-        /* Mensaje */
-        .message {
-            font-family: 'Bodoni Moda', serif;
-            font-style: italic;
-            font-size: clamp(1.4rem, 4vw, 1.8rem);
-            line-height: 1.5;
-            color: var(--bone);
+        /* Música de la noche */
+        .lineup { padding: 3rem 0 150px; }
+        .lineup-text {
+            font-family: 'Kaushan Script', cursive;
+            font-size: clamp(1.4rem, 5vw, 1.9rem);
+            line-height: 1.35;
+            color: var(--red-bright);
+            -webkit-text-stroke: 4px var(--cream);
+            paint-order: stroke fill;
         }
-        .yeehaw {
-            margin-top: 2.5rem;
-            font-family: 'Rye', serif;
-            font-size: 1.4rem;
-            letter-spacing: .3em;
-            color: var(--brass);
+        .lineup-photo {
+            margin: 1.2rem auto 0;
+            border: 3px solid var(--wood-dark);
+            outline: 2px solid var(--cream);
+            outline-offset: -7px;
+            box-shadow: 0 8px 20px rgba(43, 26, 15, .4);
+            background: var(--wood-dark);
         }
+        .lineup-photo img { display: block; width: 100%; height: auto; }
+        .lineup-photo.logo { max-width: 400px; }
+        .lineup-photo.band { max-width: 560px; }
+        .lineup-text + .lineup-photo + .lineup-text { margin-top: 3rem; }
 
         /* ── Reproductor de música ── */
         .music-player {
             position: fixed;
-            right: 20px;
             bottom: 20px;
+            right: 20px;
             z-index: 100;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 12px;
-        }
-        .music-label {
-            font-size: .85rem;
-            line-height: 1.3;
-            text-align: right;
-            color: var(--bone);
-            background: rgba(22, 27, 46, .88);
-            border: 1px solid rgba(201, 162, 75, .5);
-            padding: 6px 12px;
+            gap: 8px;
         }
         .music-btn {
-            width: 54px;
-            height: 54px;
-            flex: none;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            border: 1px solid var(--brass);
-            background: var(--night);
-            color: var(--brass-light);
+            border: 3px solid #8b5a2b;
+            background: linear-gradient(145deg, #5c3317, #3e1f00);
+            color: #f5e6c8;
+            font-size: 1.8rem;
             cursor: pointer;
-            display: grid;
-            place-items: center;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, .5);
-            transition: background .25s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: musicPulse 2s ease-in-out infinite;
         }
-        .music-btn:hover { background: #232a45; }
-        .music-btn svg { width: 22px; height: 22px; fill: currentColor; }
-        .music-btn .ico-pause { display: none; }
-        .music-btn.playing .ico-play { display: none; }
-        .music-btn.playing .ico-pause { display: block; }
-        #ytPlayer { position: absolute; width: 0; height: 0; border: 0; visibility: hidden; }
+        .music-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+        }
+        .music-btn.playing {
+            animation: musicSpin 3s linear infinite;
+            border-color: #d4a35a;
+        }
+        .music-label {
+            font-family: 'Rye', cursive;
+            font-size: 0.6rem;
+            color: #5c3317;
+            background: rgba(253, 246, 227, 0.9);
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        @keyframes musicPulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); }
+            50% { box-shadow: 0 4px 20px rgba(139, 90, 43, 0.6), 0 0 15px rgba(218, 165, 32, 0.3); }
+        }
+        @keyframes musicSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
         @media (max-width: 500px) {
-            .section { padding: 56px 0; }
-            .music-player { right: 12px; bottom: 12px; }
             .count-cell { padding: 0 2px; }
+            .music-player { bottom: 10px; right: 10px; }
+            .music-btn { width: 50px; height: 50px; font-size: 1.4rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
-            .sky-stars i { animation: none; }
-            .fifty::after { animation: none; display: none; }
         }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="sky-stars" id="skyStars" aria-hidden="true"></div>
+    <main class="poster">
+        <div class="art" aria-hidden="true"></div>
 
-        <div class="hero-inner">
-            <p class="invite-line">Aparta el día</p>
-            <h1 class="fifty" aria-label="50">50</h1>
-            <p class="anniversary">Aniversario</p>
-            <p class="hero-date">Sábado 12 de diciembre de 2026<br>A partir de las 8:00 de la noche</p>
+        <!-- Espacio sobre el que se ve el sombrero, las botas y los foquitos -->
+        <div class="top-space" role="img" aria-label="Sombrero vaquero sobre botas, bajo foquitos en frascos"></div>
+
+        <p class="script">Ponte tus botas y tu sombrero</p>
+        <p class="celebra">Y acompáñanos a celebrar</p>
+
+        <h1>
+            <span class="sr-only">Los 50 años de Ray Chavez</span>
+            <svg class="title-art" viewBox="0 0 600 230" aria-hidden="true">
+                <defs>
+                    <!-- Textura de óxido para el relleno de las letras -->
+                    <filter id="rust" filterUnits="userSpaceOnUse" x="0" y="100" width="600" height="130">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="5" result="n"/>
+                        <feColorMatrix in="n" type="matrix" values="0.6 0 0 0 0.14  0 0.26 0 0 0.01  0 0 0.12 0 0.005  0 0 0 0 1" result="tex"/>
+                        <feComposite in="tex" in2="SourceAlpha" operator="in"/>
+                    </filter>
+                    <path id="curveL" d="M72 76 Q150 66 244 78"/>
+                    <path id="curveR" d="M356 78 Q450 66 528 76"/>
+                </defs>
+
+                <!-- Listón izquierdo -->
+                <path d="M74 54 L18 50 L36 76 L18 102 L74 98 Z" fill="#dcc590" stroke="#2b1a0f" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M72 42 Q150 32 250 46 L250 92 Q150 80 72 90 Z" fill="#f6e7c1" stroke="#2b1a0f" stroke-width="3" stroke-linejoin="round"/>
+                <!-- Listón derecho -->
+                <path d="M526 54 L582 50 L564 76 L582 102 L526 98 Z" fill="#dcc590" stroke="#2b1a0f" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M528 42 Q450 32 350 46 L350 92 Q450 80 528 90 Z" fill="#f6e7c1" stroke="#2b1a0f" stroke-width="3" stroke-linejoin="round"/>
+                <text font-size="26" fill="#4a1f1a" letter-spacing="1.5">
+                    <textPath href="#curveL" startOffset="50%" text-anchor="middle">LOS</textPath>
+                </text>
+                <text font-size="26" fill="#4a1f1a" letter-spacing="1.5">
+                    <textPath href="#curveR" startOffset="50%" text-anchor="middle">AÑOS DE</textPath>
+                </text>
+
+                <!-- Insignia con el 50 -->
+                <circle cx="300" cy="64" r="54" fill="#4a1f1a" stroke="#2b1a0f" stroke-width="4"/>
+                <circle cx="300" cy="64" r="45" fill="none" stroke="#f6e7c1" stroke-width="3" stroke-dasharray="0.1 7" stroke-linecap="round"/>
+                <text x="300" y="83" font-size="52" text-anchor="middle" fill="#f6e7c1" stroke="#2b1a0f" stroke-width="2" paint-order="stroke fill">50</text>
+
+                <!-- Palabra grande: sombra, contornos, borde crema y relleno de óxido -->
+                <g text-anchor="middle" font-size="104" stroke-linejoin="round">
+                    <text x="305" y="211" textLength="500" lengthAdjust="spacingAndGlyphs" fill="#2b1a0f" stroke="#2b1a0f" stroke-width="22" opacity=".35">RAY CHAVEZ</text>
+                    <text x="300" y="206" textLength="500" lengthAdjust="spacingAndGlyphs" fill="#2b1a0f" stroke="#2b1a0f" stroke-width="22">RAY CHAVEZ</text>
+                    <text x="300" y="206" textLength="500" lengthAdjust="spacingAndGlyphs" fill="#f6e7c1" stroke="#f6e7c1" stroke-width="15">RAY CHAVEZ</text>
+                    <text x="300" y="206" textLength="500" lengthAdjust="spacingAndGlyphs" fill="#2b1a0f" stroke="#2b1a0f" stroke-width="6">RAY CHAVEZ</text>
+                    <text x="300" y="206" textLength="500" lengthAdjust="spacingAndGlyphs" fill="#000" filter="url(#rust)">RAY CHAVEZ</text>
+                </g>
+            </svg>
+        </h1>
+
+        <div class="rule" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 1l3.1 7.3L23 9.2l-6 5.2 1.8 7.8L12 18l-6.8 4.2L7 14.4 1 9.2l7.9-.9z"/></svg>
         </div>
 
-        <!-- Horizonte: mesas, nopal y suelo -->
-        <svg class="skyline" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-            <path fill="#4a2a35" d="M0 210 L120 210 L150 160 L260 160 L290 190 L420 190 L450 150 L560 150 L590 200 L1440 200 L1440 300 L0 300Z" opacity=".85"/>
-            <path fill="#2f1b24" d="M0 250 L180 250 L205 205 L330 205 L350 235 L640 235 L670 190 L790 190 L815 225 L1050 225 L1080 180 L1230 180 L1255 215 L1440 215 L1440 300 L0 300Z"/>
-            <g fill="#1a0f09">
-                <path d="M0 275 C240 262 480 280 720 270 C960 260 1200 280 1440 268 L1440 300 L0 300Z"/>
-                <!-- nopal -->
-                <path d="M1180 280 L1180 205 Q1180 195 1190 195 Q1200 195 1200 205 L1200 280Z"/>
-                <path d="M1200 245 L1222 245 Q1232 245 1232 235 L1232 215 Q1232 207 1239 207 Q1246 207 1246 215 L1246 240 Q1246 258 1226 258 L1200 258Z"/>
-                <path d="M1180 258 L1160 258 Q1150 258 1150 248 L1150 230 Q1150 222 1143 222 Q1136 222 1136 230 L1136 250 Q1136 270 1158 270 L1180 270Z"/>
-                <!-- nopal pequeño -->
-                <path d="M260 282 L260 242 Q260 235 266 235 Q272 235 272 242 L272 282Z"/>
-                <path d="M272 262 L284 262 Q290 262 290 256 L290 246 Q290 241 294 241 Q298 241 298 246 L298 258 Q298 270 286 270 L272 270Z"/>
-            </g>
-        </svg>
-
-        <span class="scroll-hint" aria-hidden="true"></span>
-    </header>
-
-    <main>
-        <section class="section" aria-labelledby="t-faltan">
-            <h2 id="t-faltan">Faltan</h2>
+        <section aria-labelledby="t-faltan">
+            <h2 class="section-title" id="t-faltan">Faltan</h2>
             <div class="countdown" id="countdown" role="timer" aria-live="off">
                 <div class="count-cell"><span class="count-num" id="days">--</span><span class="count-unit">días</span></div>
                 <div class="count-cell"><span class="count-num" id="hours">--</span><span class="count-unit">horas</span></div>
@@ -382,51 +490,66 @@
             </div>
         </section>
 
-        <div class="ornament" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 1l3.1 7.3L23 9.2l-6 5.2 1.8 7.8L12 18l-6.8 4.2L7 14.4 1 9.2l7.9-.9z"/></svg>
-        </div>
-
-        <section class="section" aria-labelledby="t-lugar">
-            <h2 id="t-lugar">Dónde será</h2>
-            <p class="venue-name" id="t-lugar-nombre">Quinta San Francisco</p>
-            <p class="venue-text">¡Ahí nos vemos, compadre!</p>
-            <a class="map-btn" href="https://maps.google.com/?q=25.779667,-100.201485" target="_blank" rel="noopener">Ver en Google Maps</a>
-        </section>
-
-        <div class="ornament" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 1l3.1 7.3L23 9.2l-6 5.2 1.8 7.8L12 18l-6.8 4.2L7 14.4 1 9.2l7.9-.9z"/></svg>
-        </div>
-
-        <section class="section" aria-labelledby="t-calendario">
-            <h2 id="t-calendario">Agéndalo</h2>
-            <p class="cal-intro">Guarda la fecha en tu calendario para no olvidarla.</p>
-            <div class="cal-actions">
-                <a class="map-btn" id="googleCal" href="#" target="_blank" rel="noopener">Google Calendar</a>
-                <a class="map-btn" id="appleCal" href="#" download="aniversario-50.ics">Apple Calendar</a>
+        <section class="ticket" aria-label="Fecha, lugar y hora">
+            <div class="ticket-bg" aria-hidden="true"></div>
+            <div class="ticket-grid">
+                <div class="ticket-col t-date">
+                    <span class="t-day-name">Sábado</span>
+                    <span class="t-day">12<span class="t-de">de</span></span>
+                    <span class="t-month">Diciembre</span>
+                </div>
+                <div class="ticket-col">
+                    <p class="t-place">Quinta<br>San Francisco</p>
+                    <p class="t-note">¡Ahí nos vemos, compadre!</p>
+                </div>
+                <div class="ticket-col">
+                    <p class="t-hora-title">HORA</p>
+                    <svg class="t-flourish" viewBox="0 0 100 12" aria-hidden="true"><path d="M3 8 C13 1 22 11 34 6 S46 2 50 6 S66 11 78 5 C86 2 94 5 97 8"/></svg>
+                    <p class="t-from">a partir de</p>
+                    <p class="t-time">8:00pm</p>
+                    <svg class="t-flourish flip" viewBox="0 0 100 12" aria-hidden="true"><path d="M3 8 C13 1 22 11 34 6 S46 2 50 6 S66 11 78 5 C86 2 94 5 97 8"/></svg>
+                </div>
             </div>
         </section>
 
-        <div class="ornament" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 1l3.1 7.3L23 9.2l-6 5.2 1.8 7.8L12 18l-6.8 4.2L7 14.4 1 9.2l7.9-.9z"/></svg>
-        </div>
+        <nav class="actions" aria-label="Mapa y calendario">
+            <a class="btn icon-btn" href="https://maps.google.com/?q=25.779667,-100.201485" target="_blank" rel="noopener" aria-label="Ver en Google Maps" title="Ver en Google Maps">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+            </a>
+            <a class="btn icon-btn" id="googleCal" href="#" target="_blank" rel="noopener" aria-label="Agregar a Google Calendar" title="Agregar a Google Calendar">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5zm2 4h5v5H7v-5z"/></svg>
+            </a>
+            <a class="btn icon-btn" id="appleCal" href="#" download="aniversario-50.ics" aria-label="Agregar a Apple Calendar" title="Agregar a Apple Calendar">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+            </a>
+        </nav>
 
-        <section class="section">
-            <p class="message">
-                Ponte tus botas y tu mejor sombrero…<br>
-                ¡que esta fiesta va a estar de lo mejor!
-            </p>
-            <p class="yeehaw">¡YEEHAW!</p>
+        <section class="lineup" aria-label="Música de la noche">
+            <p class="lineup-text">Tendremos la mejor música de cabina de la mano de PB Music</p>
+            <figure class="lineup-photo logo">
+                <img src="pb-music.jpg" width="600" height="206" alt="PB Music, audio e iluminación" loading="lazy">
+            </figure>
+
+            <p class="lineup-text">Y para cerrar la noche, la mejor música tejana con Atejanado</p>
+            <figure class="lineup-photo band">
+                <img src="atejanado.jpg" width="965" height="453" alt="Los cuatro integrantes de Atejanado con camisas azules y sombreros negros" loading="lazy">
+            </figure>
         </section>
     </main>
 
     <!-- Reproductor de música flotante -->
-    <div class="music-player">
-        <div class="music-label" id="musicLabel">Traileros del Norte<br>Dale play</div>
-        <button class="music-btn" id="musicBtn" type="button" aria-label="Reproducir o pausar música">
-            <svg class="ico-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            <svg class="ico-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-        </button>
-        <div id="ytPlayer"></div>
+    <div class="music-player" id="musicPlayer">
+        <div class="music-label" id="musicLabel">🎵 Traileros del Norte<br>¡Dale play!</div>
+        <button class="music-btn" id="musicBtn" title="Reproducir / Pausar música">🎵</button>
+        <!-- YouTube iframe oculto para audio -->
+        <iframe
+            id="ytPlayer"
+            width="0"
+            height="0"
+            src="https://www.youtube.com/embed/iQnAUynTPpk?enablejsapi=1&autoplay=1&loop=1&playlist=iQnAUynTPpk"
+            allow="autoplay"
+            style="display:none;"
+        ></iframe>
     </div>
 
     <script>
@@ -494,55 +617,58 @@
         document.getElementById('appleCal').href =
             URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
 
-        // ── Estrellas del cielo ──
-        const skyStars = document.getElementById('skyStars');
-        for (let i = 0; i < 60; i++) {
-            const s = document.createElement('i');
-            s.style.left = Math.random() * 100 + '%';
-            s.style.top = Math.random() * 100 + '%';
-            s.style.animationDelay = (Math.random() * 4) + 's';
-            s.style.animationDuration = (3 + Math.random() * 3) + 's';
-            skyStars.appendChild(s);
-        }
-
         // ── Reproductor de música (YouTube IFrame API) ──
         let player;
         let isPlaying = false;
         const musicBtn = document.getElementById('musicBtn');
         const musicLabel = document.getElementById('musicLabel');
 
+        // Cargar API de YouTube
         const tag = document.createElement('script');
         tag.src = 'https://www.youtube.com/iframe_api';
         document.head.appendChild(tag);
 
-        window.onYouTubeIframeAPIReady = function () {
+        // Callback global que YouTube llama cuando la API está lista
+        window.onYouTubeIframeAPIReady = function() {
             player = new YT.Player('ytPlayer', {
                 videoId: 'iQnAUynTPpk',
-                playerVars: { autoplay: 0, loop: 1, playlist: 'iQnAUynTPpk' },
+                playerVars: {
+                    autoplay: 0,
+                    loop: 1,
+                    playlist: 'iQnAUynTPpk'
+                },
                 events: {
-                    onStateChange: function (event) {
-                        if (event.data === YT.PlayerState.ENDED) player.playVideo();
+                    'onReady': function(event) {
+                        musicLabel.innerHTML = '🎵 Traileros del Norte<br>¡Dale play!';
+                    },
+                    'onStateChange': function(event) {
+                        if (event.data === YT.PlayerState.ENDED) {
+                            player.playVideo(); // Loop
+                        }
                     }
                 }
             });
         };
 
-        musicBtn.addEventListener('click', function () {
+        musicBtn.addEventListener('click', function() {
             if (!player || typeof player.playVideo !== 'function') {
-                musicLabel.innerHTML = 'Cargando…';
+                musicLabel.innerHTML = '⏳ Cargando...';
                 return;
             }
 
             if (isPlaying) {
                 player.pauseVideo();
+                musicBtn.textContent = '🎵';
                 musicBtn.classList.remove('playing');
-                musicLabel.innerHTML = 'Traileros del Norte<br>En pausa';
+                musicLabel.innerHTML = '🎵 Traileros del Norte<br>⏸️ Pausado';
+                isPlaying = false;
             } else {
                 player.playVideo();
+                musicBtn.textContent = '🤠';
                 musicBtn.classList.add('playing');
-                musicLabel.innerHTML = 'Traileros del Norte<br>Sonando';
+                musicLabel.innerHTML = '🎵 Traileros del Norte<br>🎶 Sonando...';
+                isPlaying = true;
             }
-            isPlaying = !isPlaying;
         });
     </script>
 </body>
